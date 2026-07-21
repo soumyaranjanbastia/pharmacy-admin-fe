@@ -20,6 +20,18 @@ const API_ENDPOINTS = {
   login: 'auth/login',
   validateOtpAndTokens: 'auth/validateOtpAndTokens',
   getTransactionHistory: 'auth/getTransactionHistory',
+  
+  // Branch Management
+  getDistricts: "dashboard/getDistricts",
+  createBranch: "dashboard/createBranch",
+  getBranches: "dashboard/getBranches",
+  deleteBranch: "dashboard/deleteBranch",
+
+  // User Management
+  getRole: "dashboard/getRole",
+  createUser: "dashboard/createUser",
+  getUserList: 'dashboard/getUserList',
+  deleteUser: "dashboard/deleteUser",
 };
 
 export default API_ENDPOINTS;

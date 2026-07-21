@@ -2,6 +2,7 @@
   "sidebar.title": "SPMP",
   "sidebar.subtitle": "Pharmacy Platform",
   "sidebar.dashboard": "Dashboard",
+  "sidebar.branch": "Branch",
   "sidebar.pos_sale": "POS Sale",
   "sidebar.inventory": "Inventory",
   "sidebar.delivery": "Delivery",

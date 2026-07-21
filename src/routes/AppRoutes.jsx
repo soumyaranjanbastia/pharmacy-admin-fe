@@ -22,6 +22,9 @@ import AddPrescriptionScreen from "../modules/PosBilling/screens/AddPrescription
 // Admin & App Components
 import Layout from "../components/Layout/Layout";
 import DashboardScreen from "../modules/Dashboard/screens/DashboardScreen";
+import BranchDashboard from "../modules/BranchManagement/screens/BranchDashboard";
+import UserManagementPortal from "../modules/UserManagement/screens/UserManagementPortal";
+import CreateUserWizard from "../modules/UserManagement/screens/mainModule/CreateUserWizard";
 import NotFoundScreen from "../components/NotFound/NotFoundScreen";
 
 const AppRoutes = () => {
@@ -50,6 +53,9 @@ const AppRoutes = () => {
         <Route path="/pos-billing" element={<PosBillingScreen />} />
         <Route path="/pos/prescription" element={<AddPrescriptionScreen />} />
         <Route path="/pos-billing/add-prescription" element={<AddPrescriptionScreen />} />
+        <Route path="/branch-management" element={<BranchDashboard />} />
+        <Route path="/users" element={<UserManagementPortal />} />
+        <Route path="/create-user" element={<CreateUserWizard />} />
       </Route>
 
       {/* Admin Nested Routes */}
@@ -60,6 +66,9 @@ const AppRoutes = () => {
         <Route path="pos-billing" element={<PosBillingScreen />} />
         <Route path="pos/prescription" element={<AddPrescriptionScreen />} />
         <Route path="pos-billing/add-prescription" element={<AddPrescriptionScreen />} />
+        <Route path="branch-management" element={<BranchDashboard />} />
+        <Route path="users" element={<UserManagementPortal />} />
+        <Route path="create-user" element={<CreateUserWizard />} />
         <Route path="*" element={<NotFoundScreen />} />
       </Route>
 

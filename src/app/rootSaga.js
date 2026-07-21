@@ -21,6 +21,14 @@ import { watchLogout } from "../modules/Auth/sagas/logoutSaga";
 import { watchLogin } from "../modules/Auth/sagas/loginSaga";
 import { watchGetTransactionHistory } from "../modules/Auth/sagas/getTransactionHistorySaga";
 import { watchValidateOtpToken } from "../modules/Auth/sagas/validateOtpAndTokenSaga";
+import { watchGetBranches } from "../modules/BranchManagement/sagas/getBranchesSaga";
+import { watchCreateBranch } from "../modules/BranchManagement/sagas/createBranchSaga";
+import { watchDeleteBranch } from "../modules/BranchManagement/sagas/deleteBranchSaga";
+import { watchGetDistricts } from "../modules/BranchManagement/sagas/getDistrictsSaga";
+import { watchCreateUser } from "../modules/UserManagement/sagas/createUserSaga";
+import { watchDeleteUser } from "../modules/UserManagement/sagas/deleteUserSaga";
+import { watchGetRole } from "../modules/UserManagement/sagas/getRoleSaga";
+import { watchGetUserList } from "../modules/UserManagement/sagas/getUserListSaga";
 
 export default function* rootSaga() {
   yield all([
@@ -45,5 +53,13 @@ export default function* rootSaga() {
     watchLogin(),
     watchGetTransactionHistory(),
     watchValidateOtpToken(),
+    watchGetBranches(),
+    watchCreateBranch(),
+    watchDeleteBranch(),
+    watchGetDistricts(),
+    watchCreateUser(),
+    watchDeleteUser(),
+    watchGetRole(),
+    watchGetUserList(),
   ]);
 }

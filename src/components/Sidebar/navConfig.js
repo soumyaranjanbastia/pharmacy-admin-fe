@@ -8,7 +8,8 @@ import {
   CreditCard,
   BarChart2,
   ShieldCheck,
-  Settings
+  Settings,
+  Store
 } from 'lucide-react';
 
 export const navConfig = [
@@ -17,6 +18,12 @@ export const navConfig = [
     path: '/dashboard',
     icon: LayoutDashboard,
     roles: ['super_admin', 'admin', 'pharmacist'],
+  },
+  {
+    translationKey: 'sidebar.branch',
+    path: '/branch-management',
+    icon: Store,
+    roles: ['super_admin', 'admin'],
   },
   {
     translationKey: 'sidebar.pos_sale',
