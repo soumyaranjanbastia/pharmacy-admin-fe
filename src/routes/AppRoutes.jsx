@@ -18,6 +18,7 @@ import PaymentSuccess from "../modules/Auth/screens/PaymentSuccess";
 // PosBilling Module Screens
 import PosBillingScreen from "../modules/PosBilling/screens/PosBillingScreen";
 import AddPrescriptionScreen from "../modules/PosBilling/screens/AddPrescriptionScreen";
+import PrescriptionViewScreen from "../modules/PosBilling/screens/PrescriptionViewScreen";
 
 // Admin & App Components
 import Layout from "../components/Layout/Layout";
@@ -55,9 +56,12 @@ const AppRoutes = () => {
         <Route path="/pos-billing" element={<PosBillingScreen />} />
         <Route path="/pos/prescription" element={<AddPrescriptionScreen />} />
         <Route path="/pos-billing/add-prescription" element={<AddPrescriptionScreen />} />
+        <Route path="/pos/prescription-view" element={<PrescriptionViewScreen />} />
+        <Route path="/pos-billing/prescription-view" element={<PrescriptionViewScreen />} />
         <Route path="/branch-management" element={<BranchDashboard />} />
         <Route path="/users" element={<UserManagementPortal />} />
         <Route path="/create-user" element={<CreateUserWizard />} />
+        <Route path="/edit-user" element={<CreateUserWizard />} />
         <Route path="/settings" element={<SettingsScreen />} />
         <Route path="/reports" element={<ReportsScreen />} />
       </Route>
@@ -70,9 +74,12 @@ const AppRoutes = () => {
         <Route path="pos-billing" element={<PosBillingScreen />} />
         <Route path="pos/prescription" element={<AddPrescriptionScreen />} />
         <Route path="pos-billing/add-prescription" element={<AddPrescriptionScreen />} />
+        <Route path="pos/prescription-view" element={<PrescriptionViewScreen />} />
+        <Route path="pos-billing/prescription-view" element={<PrescriptionViewScreen />} />
         <Route path="branch-management" element={<BranchDashboard />} />
         <Route path="users" element={<UserManagementPortal />} />
         <Route path="create-user" element={<CreateUserWizard />} />
+        <Route path="edit-user" element={<CreateUserWizard />} />
         <Route path="settings" element={<SettingsScreen />} />
         <Route path="reports" element={<ReportsScreen />} />
         <Route path="*" element={<NotFoundScreen />} />

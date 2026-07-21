@@ -541,8 +541,12 @@ const CreateBranchModal = ({ open, onClose, initialData }) => {
               branchName: initialData?.branchName || "", 
               nodalOfficerName: initialData?.nodalOfficerName || "", 
               email: initialData?.email || "", 
-              contactNumber: initialData?.contactNumber || "", 
-              additionalContactNumber: initialData?.additionalContactNumber || "",
+              contactNumber: initialData?.contactNumber
+                ? String(initialData.contactNumber).replace(/\D/g, "").slice(-10)
+                : "", 
+              additionalContactNumber: initialData?.additionalContactNumber
+                ? String(initialData.additionalContactNumber).replace(/\D/g, "").slice(-10)
+                : "",
               country: initialData?.country || parsedAddress.country || "", 
               state: initialData?.state || parsedAddress.state || "", 
               city: initialData?.city || parsedAddress.city || "", 
@@ -620,10 +624,8 @@ const CreateBranchModal = ({ open, onClose, initialData }) => {
                       placeholder="10-digit number"
                       value={values.contactNumber}
                       onChange={(e) => {
-                        const val = e.target.value.replace(/[^0-9]/g, "");
-                        if (val.length <= 10) {
-                          setFieldValue("contactNumber", val);
-                        }
+                        const val = e.target.value.replace(/\D/g, "").slice(0, 10);
+                        setFieldValue("contactNumber", val);
                       }}
                       error={(touched.contactNumber || !!values.contactNumber) && errors.contactNumber}
                       helperText={(touched.contactNumber || !!values.contactNumber) && errors.contactNumber}
@@ -634,10 +636,8 @@ const CreateBranchModal = ({ open, onClose, initialData }) => {
                       placeholder="Optional 10-digit number"
                       value={values.additionalContactNumber}
                       onChange={(e) => {
-                        const val = e.target.value.replace(/[^0-9]/g, "");
-                        if (val.length <= 10) {
-                          setFieldValue("additionalContactNumber", val);
-                        }
+                        const val = e.target.value.replace(/\D/g, "").slice(0, 10);
+                        setFieldValue("additionalContactNumber", val);
                       }}
                       error={(touched.additionalContactNumber || !!values.additionalContactNumber) && errors.additionalContactNumber}
                       helperText={(touched.additionalContactNumber || !!values.additionalContactNumber) && errors.additionalContactNumber}

@@ -103,13 +103,18 @@ const schema = Yup.object().shape({
   address: Yup.string().required("Address is required"),
 });
 
-const formatDate = (value) => {
+const parseToIsoDate = (value) => {
   if (!value) return "";
-  const date = new Date(value);
-  const day = String(date.getDate()).padStart(2, "0");
-  const month = String(date.getMonth() + 1).padStart(2, "0"); // month is 0-based
-  const year = date.getFullYear();
-  return `${day}/${month}/${year}`;
+  if (value.includes("/")) {
+    const parts = value.split("/");
+    if (parts.length === 3) {
+      const day = parts[0].padStart(2, "0");
+      const month = parts[1].padStart(2, "0");
+      const year = parts[2];
+      return `${year}-${month}-${day}`;
+    }
+  }
+  return value;
 };
 
 const getTodayString = () => {
@@ -129,6 +134,7 @@ const PersonalInfoStep = ({ onNext, data = {} }) => {
   return (
     <Card>
       <Formik
+        enableReinitialize
         initialValues={{
           firstname: data.firstname || "",
           lastname: data.lastname || "",
@@ -138,18 +144,13 @@ const PersonalInfoStep = ({ onNext, data = {} }) => {
           gender: data.gender || "",
           country: data.country || "",
           state: data.state || "",
-          dob: data.dob || "",
+          dob: parseToIsoDate(data.dob),
           address: data.address || "",
         }}
         validationSchema={schema}
         onSubmit={(values) => {
-          // ✅ Format DOB before submitting
-          const formattedValues = {
-            ...values,
-            dob: values.dob.includes("/") ? values.dob : formatDate(values.dob),
-          };
-          console.log("✅ Personal Info Submitted:", formattedValues);
-          if (onNext) onNext(formattedValues); // 👉 trigger next step
+          console.log("✅ Personal Info Submitted:", values);
+          if (onNext) onNext(values); // 👉 trigger next step
         }}
       >
         {({ values, errors, touched, setFieldValue, handleChange }) => (
@@ -235,44 +236,44 @@ const PersonalInfoStep = ({ onNext, data = {} }) => {
               />
               <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', marginBottom: '24px' }}>
                 <span style={{ fontSize: '13px', fontWeight: '600', color: 'var(--text-muted)' }}>Gender *</span>
-              <RadioGroup>
-                <RadioLabel $active={values.gender === "Male"}>
-                  <input
-                    type="radio"
-                    name="gender"
-                    value="Male"
-                    checked={values.gender === "Male"}
-                    onChange={() => setFieldValue("gender", "Male")}
-                  />
-                  Male
-                </RadioLabel>
-                <RadioLabel $active={values.gender === "Female"}>
-                  <input
-                    type="radio"
-                    name="gender"
-                    value="Female"
-                    checked={values.gender === "Female"}
-                    onChange={() => setFieldValue("gender", "Female")}
-                  />
-                  Female
-                </RadioLabel>
-                <RadioLabel $active={values.gender === "Other"}>
-                  <input
-                    type="radio"
-                    name="gender"
-                    value="Other"
-                    checked={values.gender === "Other"}
-                    onChange={() => setFieldValue("gender", "Other")}
-                  />
-                  Other
-                </RadioLabel>
-              </RadioGroup>
-              {touched.gender && errors.gender && (
-                <div style={{ color: "#e74c3c", fontSize: "12px", marginTop: "4px" }}>
-                  {errors.gender}
-                </div>
-              )}
-            </div>
+                <RadioGroup>
+                  <RadioLabel $active={values.gender === "Male"}>
+                    <input
+                      type="radio"
+                      name="gender"
+                      value="Male"
+                      checked={values.gender === "Male"}
+                      onChange={() => setFieldValue("gender", "Male")}
+                    />
+                    Male
+                  </RadioLabel>
+                  <RadioLabel $active={values.gender === "Female"}>
+                    <input
+                      type="radio"
+                      name="gender"
+                      value="Female"
+                      checked={values.gender === "Female"}
+                      onChange={() => setFieldValue("gender", "Female")}
+                    />
+                    Female
+                  </RadioLabel>
+                  <RadioLabel $active={values.gender === "Other"}>
+                    <input
+                      type="radio"
+                      name="gender"
+                      value="Other"
+                      checked={values.gender === "Other"}
+                      onChange={() => setFieldValue("gender", "Other")}
+                    />
+                    Other
+                  </RadioLabel>
+                </RadioGroup>
+                {touched.gender && errors.gender && (
+                  <div style={{ color: "#e74c3c", fontSize: "12px", marginTop: "4px" }}>
+                    {errors.gender}
+                  </div>
+                )}
+              </div>
             </Row>
 
             <FormSectionTitle style={{ marginTop: '32px' }}>Location & Address</FormSectionTitle>

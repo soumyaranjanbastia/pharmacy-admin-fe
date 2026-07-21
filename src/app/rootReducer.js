@@ -21,11 +21,19 @@ import logoutReducer from "../modules/Auth/reducers/logoutReducer";
 import loginReducer from "../modules/Auth/reducers/loginReducer";
 import getTransactionHistoryReducer from "../modules/Auth/reducers/getTransactionHistoryReducer";
 import validateOtpTokenReducer from "../modules/Auth/reducers/validateOtpAndTokenReducer";
-import posBillingReducer from "../modules/PosBilling/reducers/posBillingReducer";
+
+// POS Billing Reducers (Exactly 3 Reducers)
+import searchMedicinesReducer from "../modules/PosBilling/reducers/searchMedicinesReducer";
+import prescriptionOcrReducer from "../modules/PosBilling/reducers/prescriptionOcrReducer";
+import createPosSaleReducer from "../modules/PosBilling/reducers/createPosSaleReducer";
+
+// Branch Management Reducers
 import getBranchesReducer from "../modules/BranchManagement/reducers/getBranchesReducer";
 import createBranchReducer from "../modules/BranchManagement/reducers/createBranchReducer";
 import deleteBranchReducer from "../modules/BranchManagement/reducers/deleteBranchReducer";
 import getDistrictsReducer from "../modules/BranchManagement/reducers/getDistrictsReducer";
+
+// User Management Reducers
 import createUserReducer from "../modules/UserManagement/reducers/createUserReducer";
 import deleteUserReducer from "../modules/UserManagement/reducers/deleteUserReducer";
 import getRoleReducer from "../modules/UserManagement/reducers/getRoleReducer";
@@ -53,11 +61,19 @@ const rootReducer = combineReducers({
   login: loginReducer,
   transactionHistory: getTransactionHistoryReducer,
   validateOtpToken: validateOtpTokenReducer,
-  posBilling: posBillingReducer,
+
+  // POS Billing
+  searchMedicines: searchMedicinesReducer,
+  prescriptionOcr: prescriptionOcrReducer,
+  createPosSale: createPosSaleReducer,
+
+  // Branch Management
   branches: getBranchesReducer,
   createBranch: createBranchReducer,
   deleteBranch: deleteBranchReducer,
   districts: getDistrictsReducer,
+
+  // User Management
   userList: getUserListReducer,
   deleteUser: deleteUserReducer,
   createUser: createUserReducer,

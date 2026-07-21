@@ -176,6 +176,16 @@ const ReviewStep = ({ data = {}, onBack }) => {
     targetId = data.branchUserId || data.adminUserId || data.id;
   }
 
+  const formatDobForApi = (value) => {
+    if (!value) return "";
+    if (value.includes("/")) return value;
+    const parts = value.split("-");
+    if (parts.length === 3) {
+      return `${parts[2]}/${parts[1]}/${parts[0]}`;
+    }
+    return value;
+  };
+
   const handleConfirm = () => {
     const payload = {
       firstname: data.firstname,
@@ -189,7 +199,7 @@ const ReviewStep = ({ data = {}, onBack }) => {
       address: data.address,
       id: targetId,
       gender: data.gender,
-      dob: data.dob,
+      dob: formatDobForApi(data.dob),
       digitalSignature: data.digitalSignature,
     };
 
@@ -214,7 +224,7 @@ const ReviewStep = ({ data = {}, onBack }) => {
       const timer = setTimeout(() => {
         setShowModal(false);
         dispatch(clearCreateUser());
-        navigate("/admin/user-managementportal");
+        navigate("/admin/users");
       }, 2500);
 
       return () => clearTimeout(timer);

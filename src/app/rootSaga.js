@@ -21,10 +21,19 @@ import { watchLogout } from "../modules/Auth/sagas/logoutSaga";
 import { watchLogin } from "../modules/Auth/sagas/loginSaga";
 import { watchGetTransactionHistory } from "../modules/Auth/sagas/getTransactionHistorySaga";
 import { watchValidateOtpToken } from "../modules/Auth/sagas/validateOtpAndTokenSaga";
+
+// POS Billing Sagas (Exactly 3 Sagas)
+import { watchSearchMedicines } from "../modules/PosBilling/sagas/searchMedicinesSaga";
+import { watchPrescriptionOcr } from "../modules/PosBilling/sagas/prescriptionOcrSaga";
+import { watchCreatePosSale } from "../modules/PosBilling/sagas/createPosSaleSaga";
+
+// Branch Management Sagas
 import { watchGetBranches } from "../modules/BranchManagement/sagas/getBranchesSaga";
 import { watchCreateBranch } from "../modules/BranchManagement/sagas/createBranchSaga";
 import { watchDeleteBranch } from "../modules/BranchManagement/sagas/deleteBranchSaga";
 import { watchGetDistricts } from "../modules/BranchManagement/sagas/getDistrictsSaga";
+
+// User Management Sagas
 import { watchCreateUser } from "../modules/UserManagement/sagas/createUserSaga";
 import { watchDeleteUser } from "../modules/UserManagement/sagas/deleteUserSaga";
 import { watchGetRole } from "../modules/UserManagement/sagas/getRoleSaga";
@@ -53,10 +62,19 @@ export default function* rootSaga() {
     watchLogin(),
     watchGetTransactionHistory(),
     watchValidateOtpToken(),
+
+    // POS Billing (Exactly 3 Sagas)
+    watchSearchMedicines(),
+    watchPrescriptionOcr(),
+    watchCreatePosSale(),
+
+    // Branch Management
     watchGetBranches(),
     watchCreateBranch(),
     watchDeleteBranch(),
     watchGetDistricts(),
+
+    // User Management
     watchCreateUser(),
     watchDeleteUser(),
     watchGetRole(),

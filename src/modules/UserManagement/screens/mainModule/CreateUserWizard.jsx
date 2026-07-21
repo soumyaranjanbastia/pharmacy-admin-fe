@@ -80,8 +80,8 @@ const CreateUserWizard = () => {
     console.log("✅ Final API Payload:", payload);
     // you can dispatch createUser action here or call API
     toast.success("Success", editUser ? "User Updated Successfully" : "User Created Successfully");
-    // navigate to listing after success if desired:
-    navigate("/admin/user-managementportal");
+    // navigate to listing after success:
+    navigate("/admin/users");
   };
 
   // const roleName = (formData.roleName || formData.role || "").toString();

@@ -32,6 +32,11 @@ const API_ENDPOINTS = {
   createUser: "dashboard/createUser",
   getUserList: 'dashboard/getUserList',
   deleteUser: "dashboard/deleteUser",
+
+  // POS Billing (Exactly 3 APIs)
+  searchMedicines: "pos/searchMedicines",
+  prescriptionOcr: "pos/prescriptionOcr",
+  createPosSale: "pos/createPosSale",
 };
 
 export default API_ENDPOINTS;
