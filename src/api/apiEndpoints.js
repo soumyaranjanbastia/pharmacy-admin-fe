@@ -1,0 +1,25 @@
+const API_ENDPOINTS = {
+  getCountryData: 'auth/getCountryData',
+  register: 'auth/register',
+  userExist: 'auth/userExist',
+  validate: 'auth/validate',
+  setPin: 'auth/setPin',
+  validatePin: 'auth/validatePin',
+  setAuthType: 'auth/setAuthType',
+  getCompanyType: 'auth/getComapanyType',
+  addCompanyDetails: 'auth/addCompanyDetails',
+  getCertification: 'auth/getCertification',
+  addCertificate: 'auth/addCertificate',
+  getPlans: 'auth/getPlans',
+  getAllCoupons: 'auth/getAllCoupons',
+  applyCoupons: 'auth/applyCoupons',
+  paymentDetails: 'auth/paymentDetails',
+  payment: 'auth/payment',
+  verifyPayment: 'auth/verifyPayment',
+  logout: 'auth/logout',
+  login: 'auth/login',
+  validateOtpAndTokens: 'auth/validateOtpAndTokens',
+  getTransactionHistory: 'auth/getTransactionHistory',
+};
+
+export default API_ENDPOINTS;
