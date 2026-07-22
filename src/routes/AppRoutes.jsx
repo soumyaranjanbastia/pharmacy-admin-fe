@@ -28,6 +28,7 @@ import UserManagementPortal from "../modules/UserManagement/screens/UserManageme
 import CreateUserWizard from "../modules/UserManagement/screens/mainModule/CreateUserWizard";
 import SettingsScreen from "../modules/Settings/screens/SettingsScreen";
 import ReportsScreen from "../modules/Reports/screens/ReportsScreen";
+import InventoryScreen from "../modules/Inventory/screens/InventoryScreen";
 import NotFoundScreen from "../components/NotFound/NotFoundScreen";
 
 const AppRoutes = () => {
@@ -64,6 +65,7 @@ const AppRoutes = () => {
         <Route path="/edit-user" element={<CreateUserWizard />} />
         <Route path="/settings" element={<SettingsScreen />} />
         <Route path="/reports" element={<ReportsScreen />} />
+        <Route path="/inventory" element={<InventoryScreen />} />
       </Route>
 
       {/* Admin Nested Routes */}
@@ -82,6 +84,7 @@ const AppRoutes = () => {
         <Route path="edit-user" element={<CreateUserWizard />} />
         <Route path="settings" element={<SettingsScreen />} />
         <Route path="reports" element={<ReportsScreen />} />
+        <Route path="inventory" element={<InventoryScreen />} />
         <Route path="*" element={<NotFoundScreen />} />
       </Route>
 
